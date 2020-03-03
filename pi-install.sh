@@ -13,18 +13,12 @@ sudo apt-get -y install \
   curl \
   gnupg2 \
   software-properties-common
-
-# add docker repository for arm processesors
-echo "ADDING DOCKER REPO FOR PI"
-sudo add-apt-repository \
-   "deb [arch=arm64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
    
 # install docker daemon
 echo "INSTALLING DOCKER"
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker.io
 
 # add current user to docker group
-echo "ADDDING $USER to DOCKER GROUP"
+echo "ADDDING CURRENT USER  to DOCKER GROUP"
 sudo usermod -aG docker $USER
+
