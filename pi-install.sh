@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#--- MAKE THIS FILE AN EXECUTABLE ---#
+#--- use the following command as root: chmod -x pi-install.sh ---#
+
 # update and upgrade system
 echo "UPDATE AND UPGRADING"
 sudo apt-get -y update
@@ -14,11 +17,14 @@ sudo apt-get -y install \
   gnupg2 \
   software-properties-common
    
-# install docker daemon
-echo "INSTALLING DOCKER"
-sudo apt-get -y install docker.io
+# download docker from get.docker.com
+echo "DOWNLOADING DOCKER"
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+# run installation script
+echo "RUNNING INSTALL SCRIPT"
+sh get-docker.sh 
 
 # add current user to docker group
 echo "ADDDING CURRENT USER  to DOCKER GROUP"
 sudo usermod -aG docker $USER
-
