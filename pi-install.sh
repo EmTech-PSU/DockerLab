@@ -28,3 +28,12 @@ sh get-docker.sh
 # add current user to docker group
 echo "ADDDING CURRENT USER  to DOCKER GROUP"
 sudo usermod -aG docker $USER
+
+#add python dependencies for docker-compose
+echo "ADDING DOCKER-COMPOSE DEPENDENCIES"
+sudo apt-get install -y libffi-dev libssl-dev
+sudo apt-get install -y python python-pip
+sudo apt-get remove -y python-configparser
+
+#install docker compose
+sudo apt-get install -y docker-compose
